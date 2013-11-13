@@ -3,16 +3,9 @@
     <entity name="Employee" representedClassName="Employee" syncable="YES">
         <attribute name="empId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="empName" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Salary" syncable="YES"/>
-    </entity>
-    <entity name="Salary" representedClassName="Salary" syncable="YES">
-        <attribute name="empId" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="salary" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" syncable="YES"/>
     </entity>
     <fetchRequest name="allEmployeeFetchRequest" entity="Employee"/>
     <elements>
-        <element name="Salary" positionX="-54" positionY="-27" width="128" height="88"/>
         <element name="Employee" positionX="421" positionY="-54" width="128" height="90"/>
     </elements>
 </model>

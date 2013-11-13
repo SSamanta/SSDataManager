@@ -7,13 +7,11 @@
 //
 
 #import "Employee.h"
-#import "Salary.h"
 
 
 @implementation Employee
 
 @dynamic empId;
 @dynamic empName;
-@dynamic relationship;
 
 @end

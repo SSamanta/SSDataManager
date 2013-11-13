@@ -29,8 +29,6 @@
 		55AB4FB01833AEDB009E7233 /* MyAppModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 55AB4FAD1833AEDB009E7233 /* MyAppModel.xcdatamodeld */; };
 		55AB4FB61833BD51009E7233 /* iPhoneStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55AB4FB51833BD51009E7233 /* iPhoneStoryboard.storyboard */; };
 		55AB4FB71833BD51009E7233 /* iPhoneStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55AB4FB51833BD51009E7233 /* iPhoneStoryboard.storyboard */; };
-		55AB4FBA1833C990009E7233 /* Salary.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AB4FB91833C990009E7233 /* Salary.m */; };
-		55AB4FBB1833C990009E7233 /* Salary.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AB4FB91833C990009E7233 /* Salary.m */; };
 		55AB4FBE1833C990009E7233 /* Employee.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AB4FBD1833C990009E7233 /* Employee.m */; };
 		55AB4FBF1833C990009E7233 /* Employee.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AB4FBD1833C990009E7233 /* Employee.m */; };
 /* End PBXBuildFile section */
@@ -69,8 +67,6 @@
 		55AB4FAA1833AE41009E7233 /* PersistentStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistentStack.m; sourceTree = "<group>"; };
 		55AB4FAE1833AEDB009E7233 /* MyAppModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyAppModel.xcdatamodel; sourceTree = "<group>"; };
 		55AB4FB51833BD51009E7233 /* iPhoneStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhoneStoryboard.storyboard; sourceTree = "<group>"; };
-		55AB4FB81833C990009E7233 /* Salary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Salary.h; sourceTree = "<group>"; };
-		55AB4FB91833C990009E7233 /* Salary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Salary.m; sourceTree = "<group>"; };
 		55AB4FBC1833C990009E7233 /* Employee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Employee.h; sourceTree = "<group>"; };
 		55AB4FBD1833C990009E7233 /* Employee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Employee.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -198,8 +194,6 @@
 				55AB4FAD1833AEDB009E7233 /* MyAppModel.xcdatamodeld */,
 				55AB4FBC1833C990009E7233 /* Employee.h */,
 				55AB4FBD1833C990009E7233 /* Employee.m */,
-				55AB4FB81833C990009E7233 /* Salary.h */,
-				55AB4FB91833C990009E7233 /* Salary.m */,
 			);
 			path = SSDataManager;
 			sourceTree = "<group>";
@@ -307,7 +301,6 @@
 				55AB4FAB1833AE41009E7233 /* PersistentStack.m in Sources */,
 				55AB4FBE1833C990009E7233 /* Employee.m in Sources */,
 				55AB4FAF1833AEDB009E7233 /* MyAppModel.xcdatamodeld in Sources */,
-				55AB4FBA1833C990009E7233 /* Salary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,7 +315,6 @@
 				55AB4FAC1833AE41009E7233 /* PersistentStack.m in Sources */,
 				55AB4FBF1833C990009E7233 /* Employee.m in Sources */,
 				55AB4FB01833AEDB009E7233 /* MyAppModel.xcdatamodeld in Sources */,
-				55AB4FBB1833C990009E7233 /* Salary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
