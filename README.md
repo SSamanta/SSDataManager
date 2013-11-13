@@ -1,0 +1,4 @@
+SSDataManager
+=============
+
+CoreData with iCloud
