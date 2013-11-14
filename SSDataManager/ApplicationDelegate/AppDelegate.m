@@ -22,8 +22,6 @@
 {
     self.persistentStack = [[PersistentStack alloc] initWithStoreURL:self.storeURL modelURL:self.modelURL];
     self.managedObjectContext = self.persistentStack.managedObjectContext;
-
-
     return YES;
 }
 - (void)addEmp {

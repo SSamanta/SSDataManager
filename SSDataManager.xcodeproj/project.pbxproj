@@ -23,6 +23,10 @@
 		5505DF2E18227F6B00A67811 /* DemoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5505DF2C18227F6B00A67811 /* DemoVC.m */; };
 		5505DF3118227F8600A67811 /* SSDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5505DF3018227F8600A67811 /* SSDataManager.m */; };
 		5505DF3218227F8600A67811 /* SSDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5505DF3018227F8600A67811 /* SSDataManager.m */; };
+		551ECFFD1834D90600A1D8B7 /* AddEmployeeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 551ECFFC1834D90600A1D8B7 /* AddEmployeeVC.m */; };
+		551ECFFE1834D90600A1D8B7 /* AddEmployeeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 551ECFFC1834D90600A1D8B7 /* AddEmployeeVC.m */; };
+		551ED0011834D91C00A1D8B7 /* EmpListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 551ED0001834D91C00A1D8B7 /* EmpListVC.m */; };
+		551ED0021834D91C00A1D8B7 /* EmpListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 551ED0001834D91C00A1D8B7 /* EmpListVC.m */; };
 		55AB4FAB1833AE41009E7233 /* PersistentStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AB4FAA1833AE41009E7233 /* PersistentStack.m */; };
 		55AB4FAC1833AE41009E7233 /* PersistentStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AB4FAA1833AE41009E7233 /* PersistentStack.m */; };
 		55AB4FAF1833AEDB009E7233 /* MyAppModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 55AB4FAD1833AEDB009E7233 /* MyAppModel.xcdatamodeld */; };
@@ -63,6 +67,10 @@
 		5505DF2C18227F6B00A67811 /* DemoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoVC.m; sourceTree = "<group>"; };
 		5505DF2F18227F8600A67811 /* SSDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSDataManager.h; sourceTree = "<group>"; };
 		5505DF3018227F8600A67811 /* SSDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSDataManager.m; sourceTree = "<group>"; };
+		551ECFFB1834D90600A1D8B7 /* AddEmployeeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEmployeeVC.h; sourceTree = "<group>"; };
+		551ECFFC1834D90600A1D8B7 /* AddEmployeeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEmployeeVC.m; sourceTree = "<group>"; };
+		551ECFFF1834D91C00A1D8B7 /* EmpListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmpListVC.h; sourceTree = "<group>"; };
+		551ED0001834D91C00A1D8B7 /* EmpListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmpListVC.m; sourceTree = "<group>"; };
 		55AB4FA91833AE41009E7233 /* PersistentStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistentStack.h; sourceTree = "<group>"; };
 		55AB4FAA1833AE41009E7233 /* PersistentStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistentStack.m; sourceTree = "<group>"; };
 		55AB4FAE1833AEDB009E7233 /* MyAppModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyAppModel.xcdatamodel; sourceTree = "<group>"; };
@@ -179,6 +187,10 @@
 			children = (
 				5505DF2B18227F6B00A67811 /* DemoVC.h */,
 				5505DF2C18227F6B00A67811 /* DemoVC.m */,
+				551ECFFB1834D90600A1D8B7 /* AddEmployeeVC.h */,
+				551ECFFC1834D90600A1D8B7 /* AddEmployeeVC.m */,
+				551ECFFF1834D91C00A1D8B7 /* EmpListVC.h */,
+				551ED0001834D91C00A1D8B7 /* EmpListVC.m */,
 				55AB4FB51833BD51009E7233 /* iPhoneStoryboard.storyboard */,
 			);
 			path = Demo;
@@ -298,8 +310,10 @@
 				5505DF3118227F8600A67811 /* SSDataManager.m in Sources */,
 				5505DF2918227F5200A67811 /* AppDelegate.m in Sources */,
 				5505DF0218227EF300A67811 /* main.m in Sources */,
+				551ECFFD1834D90600A1D8B7 /* AddEmployeeVC.m in Sources */,
 				55AB4FAB1833AE41009E7233 /* PersistentStack.m in Sources */,
 				55AB4FBE1833C990009E7233 /* Employee.m in Sources */,
+				551ED0011834D91C00A1D8B7 /* EmpListVC.m in Sources */,
 				55AB4FAF1833AEDB009E7233 /* MyAppModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -312,8 +326,10 @@
 				5505DF3218227F8600A67811 /* SSDataManager.m in Sources */,
 				5505DF2A18227F5200A67811 /* AppDelegate.m in Sources */,
 				5505DF1B18227EF300A67811 /* SSDataManagerTests.m in Sources */,
+				551ECFFE1834D90600A1D8B7 /* AddEmployeeVC.m in Sources */,
 				55AB4FAC1833AE41009E7233 /* PersistentStack.m in Sources */,
 				55AB4FBF1833C990009E7233 /* Employee.m in Sources */,
+				551ED0021834D91C00A1D8B7 /* EmpListVC.m in Sources */,
 				55AB4FB01833AEDB009E7233 /* MyAppModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
