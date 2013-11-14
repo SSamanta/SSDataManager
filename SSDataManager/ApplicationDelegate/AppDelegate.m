@@ -8,14 +8,8 @@
 //
 
 #import "AppDelegate.h"
-#import "PersistentStack.h"
+
 #import "Employee.h"
-@interface AppDelegate ()
-
-@property (nonatomic, strong) NSManagedObjectContext* managedObjectContext;
-@property (nonatomic, strong) PersistentStack* persistentStack;
-
-@end
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -24,34 +18,7 @@
     self.managedObjectContext = self.persistentStack.managedObjectContext;
     return YES;
 }
-- (void)addEmp {
-    Employee *emp = [NSEntityDescription insertNewObjectForEntityForName:@"Employee" inManagedObjectContext:self.managedObjectContext];
-     emp.empId = @"1";
-     emp.empName = @"Susim";
-     NSError *error;
-     [self.managedObjectContext save:&error];
-     if (error) {
-     NSLog(@"%@",error);
-     }
-}
-- (void)fetchEmp {
-    NSManagedObjectModel* model = [[NSManagedObjectModel alloc] initWithContentsOfURL:self.modelURL];
-    NSFetchRequest *fetchRequest = [model fetchRequestTemplateForName:@"allEmployeeFetchRequest"];
-    NSSortDescriptor* sortDescriptors = [NSSortDescriptor sortDescriptorWithKey:@"empId" ascending:YES];
-    [fetchRequest setSortDescriptors:@[sortDescriptors]];
-    NSFetchedResultsController* controller = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
-                                                                                 managedObjectContext:self.managedObjectContext
-                                                                                   sectionNameKeyPath:nil
-                                                                                            cacheName:nil];
-    NSError *error ;
-    [controller performFetch:&error];
-    if (error) {
-        NSLog(@"%@",error);
-    }
-    NSArray *list = controller.fetchedObjects;
-    Employee *emp = list[0];
-    NSLog(@"%@ %@",emp.empId,emp.empName);
-}
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

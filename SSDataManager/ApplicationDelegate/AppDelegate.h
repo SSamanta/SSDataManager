@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "PersistentStack.h"
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
+@property (nonatomic, strong) NSManagedObjectContext* managedObjectContext;
+@property (nonatomic, strong) PersistentStack* persistentStack;
+- (NSURL*)modelURL;
 @end

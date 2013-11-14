@@ -63,6 +63,9 @@
                                 <state key="normal" title="Add">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="addEmp:" destination="GhM-SS-0mt" eventType="touchUpInside" id="36U-Zz-V4A"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Emp ID" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2vq-ii-OeN">
                                 <rect key="frame" x="16" y="90" width="289" height="30"/>
@@ -76,10 +79,22 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ld-dd-fH6">
+                                <rect key="frame" x="67" y="234" width="186" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Wgx-j0-flZ"/>
+                    <connections>
+                        <outlet property="empIdTf" destination="2vq-ii-OeN" id="lQs-C9-WOW"/>
+                        <outlet property="empNameTf" destination="s8Q-8B-QgW" id="pX1-EJ-gM4"/>
+                        <outlet property="statusLbl" destination="1Ld-dd-fH6" id="ZnK-wK-2FZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WAs-2E-M0Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -127,11 +142,18 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="QZG-x5-e85" id="vTQ-C2-dv5"/>
+                                    <outlet property="delegate" destination="QZG-x5-e85" id="UY5-dY-trr"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="aiw-M8-nX4"/>
+                    <connections>
+                        <outlet property="tableView" destination="g56-wd-OYQ" id="o8S-zm-Wdk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KJp-X2-Cfe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
