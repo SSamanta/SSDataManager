@@ -24,4 +24,20 @@
         handler (@"Info Saved" ,nil);
     }
 }
++ (void)fetchAllEmployeeOnCompletion:(CompletionHandler)handler {
+    AppDelegate *appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectModel* model = [[NSManagedObjectModel alloc] initWithContentsOfURL:appDel.modelURL];
+    NSFetchRequest *fetchRequest = [model fetchRequestTemplateForName:@"allEmployeeFetchRequest"];
+    NSSortDescriptor* sortDescriptors = [NSSortDescriptor sortDescriptorWithKey:@"empId" ascending:YES];
+    [fetchRequest setSortDescriptors:@[sortDescriptors]];
+    NSFetchedResultsController *fetchResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:appDel.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+    NSError *error ;
+    [fetchResultsController performFetch:&error];
+    if (error) {
+        handler (nil,error);
+    }else {
+    	handler (fetchResultsController,nil);
+    }
+    
+}
 @end

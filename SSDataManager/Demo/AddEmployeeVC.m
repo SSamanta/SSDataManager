@@ -37,6 +37,4 @@
     }];
     [self.empNameTf resignFirstResponder];
 }
-#pragma mark Core Data task
-
 @end

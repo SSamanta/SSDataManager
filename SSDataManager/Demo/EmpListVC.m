@@ -9,6 +9,7 @@
 #import "EmpListVC.h"
 #import "AppDelegate.h"
 #import "Employee.h"
+#import "SSDataManager.h"
 
 @interface EmpListVC ()
 @property (weak,nonatomic) IBOutlet UITableView *tableView;
@@ -19,7 +20,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self fetchEmp];
+	[SSDataManager fetchAllEmployeeOnCompletion:^(id object, NSError *error) {
+        if (error) {
+            NSLog(@"%@",error);
+        }else {
+            self.fetchResultsController = object;
+            [self.tableView reloadData];
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,22 +43,5 @@
     cell.textLabel.text = emp.empName;
     cell.detailTextLabel.text = emp.empId;
     return cell;
-}
-#pragma mark Core Data methods
-- (void)fetchEmp {
-    AppDelegate *appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    NSManagedObjectModel* model = [[NSManagedObjectModel alloc] initWithContentsOfURL:appDel.modelURL];
-    NSFetchRequest *fetchRequest = [model fetchRequestTemplateForName:@"allEmployeeFetchRequest"];
-    NSSortDescriptor* sortDescriptors = [NSSortDescriptor sortDescriptorWithKey:@"empId" ascending:YES];
-    [fetchRequest setSortDescriptors:@[sortDescriptors]];
-    self.fetchResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:appDel.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
-    NSError *error ;
-    [self.fetchResultsController performFetch:&error];
-    if (error) {
-        NSLog(@"%@",error);
-    }else {
-        [self.tableView reloadData];
-    }
-    
 }
 @end
