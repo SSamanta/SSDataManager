@@ -8,7 +8,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "SSDataManager.h"
 #import "Employee.h"
 @implementation AppDelegate
 
@@ -16,6 +16,14 @@
 {
     self.persistentStack = [[PersistentStack alloc] initWithStoreURL:self.storeURL modelURL:self.modelURL];
     self.managedObjectContext = self.persistentStack.managedObjectContext;
+        // Prepopuplate data code here
+    [SSDataManager addEmployeeWithEmpID:@"20" empName:@"Test" onCompletion:^(id object, NSError *error) {
+       	if (error) {
+            NSLog(@"%@",error);
+        }else {
+            NSLog(@"%@",object);
+        }
+    }];
     return YES;
 }
 

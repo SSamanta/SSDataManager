@@ -14,15 +14,29 @@
 + (void)addEmployeeWithEmpID:(NSString *)empId empName:(NSString *)empName onCompletion:(CompletionHandler)handler {
 	AppDelegate *appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
    	Employee *emp = [NSEntityDescription insertNewObjectForEntityForName:@"Employee" inManagedObjectContext:appDel.managedObjectContext];
-    emp.empId = empId;
-    emp.empName = empName;
-    NSError *error;
-    [appDel.managedObjectContext save:&error];
-    if (error) {
-        handler (nil,error);
+    __block BOOL isDuplicate = NO;
+    [self fetchAllEmployeeOnCompletion:^(NSFetchedResultsController *fetchedObject, NSError *error) {
+         [fetchedObject.fetchedObjects enumerateObjectsUsingBlock:^(Employee *obj, NSUInteger idx, BOOL *stop) {
+             if ([obj.empId isEqualToString:empId]) {
+                 isDuplicate = YES;
+                 *stop = YES;
+             }
+         }];
+    }];
+    if (isDuplicate) {
+        handler(@"Duplicate",nil);
     }else {
-        handler (@"Info Saved" ,nil);
+        emp.empId = empId;
+        emp.empName = empName;
+        NSError *error;
+        [appDel.managedObjectContext save:&error];
+        if (error) {
+            handler (nil,error);
+        }else {
+            handler (@"Info Saved" ,nil);
+        }
     }
+
 }
 + (void)fetchAllEmployeeOnCompletion:(CompletionHandler)handler {
     AppDelegate *appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
