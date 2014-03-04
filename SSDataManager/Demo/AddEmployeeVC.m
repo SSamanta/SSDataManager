@@ -9,6 +9,7 @@
 #import "AddEmployeeVC.h"
 #import "Employee.h"
 #import "AppDelegate.h"
+#import "SSDataManager.h"
 
 @interface AddEmployeeVC ()
 @property (weak,nonatomic) IBOutlet UITextField *empIdTf;
@@ -27,21 +28,15 @@
     [super didReceiveMemoryWarning];
 }
 - (IBAction)addEmp:(id)sender {
-    [self addEmployeeWithEmpID:self.empIdTf.text empName:self.empNameTf.text];
+    [SSDataManager addEmployeeWithEmpID:self.empIdTf.text empName:self.empNameTf.text onCompletion:^(id object, NSError *error) {
+        if (error) {
+            NSLog(@"%@",error.description);
+        }else {
+            self.statusLbl.text = object;
+        }
+    }];
     [self.empNameTf resignFirstResponder];
 }
 #pragma mark Core Data task
-- (void)addEmployeeWithEmpID:(NSString *)empId empName:(NSString *)empName {
-	AppDelegate *appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-   	Employee *emp = [NSEntityDescription insertNewObjectForEntityForName:@"Employee" inManagedObjectContext:appDel.managedObjectContext];
-    emp.empId = empId;
-    emp.empName = empName;
-    NSError *error;
-    [appDel.managedObjectContext save:&error];
-    if (error) {
-        NSLog(@"%@",error);
-    }else {
-        self.statusLbl.text = @"Info Saved";
-    }
-}
+
 @end

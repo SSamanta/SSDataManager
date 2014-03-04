@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+typedef void (^CompletionHandler)(id object, NSError *error);
 @interface SSDataManager : NSObject
-
++ (void)addEmployeeWithEmpID:(NSString *)empId empName:(NSString *)empName onCompletion:(CompletionHandler)handler;
 @end
