@@ -11,4 +11,5 @@ typedef void (^CompletionHandler)(id object, NSError *error);
 @interface SSDataManager : NSObject
 + (void)addEmployeeWithEmpID:(NSString *)empId empName:(NSString *)empName onCompletion:(CompletionHandler)handler;
 + (void)fetchAllEmployeeOnCompletion:(CompletionHandler)handler;
++ (void)deleteDuplicateEmployee;
 @end

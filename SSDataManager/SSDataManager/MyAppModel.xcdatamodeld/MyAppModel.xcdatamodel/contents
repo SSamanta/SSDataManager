@@ -4,8 +4,8 @@
         <attribute name="empId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="empName" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <fetchRequest name="allEmployeeFetchRequest" entity="Employee"/>
+    <fetchRequest name="allEmployeeFetchRequest" entity="Employee" returnDistinctResults="YES"/>
     <elements>
-        <element name="Employee" positionX="421" positionY="-54" width="128" height="90"/>
+        <element name="Employee" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

@@ -14,12 +14,14 @@
 @interface EmpListVC ()
 @property (weak,nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic) NSFetchedResultsController* fetchResultsController;
+@property (nonatomic) NSMutableArray *list;
 @end
 
 @implementation EmpListVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [SSDataManager deleteDuplicateEmployee];
 	[SSDataManager fetchAllEmployeeOnCompletion:^(id object, NSError *error) {
         if (error) {
             NSLog(@"%@",error);
@@ -27,7 +29,7 @@
             self.fetchResultsController = object;
             [self.tableView reloadData];
         }
-    }];
+}];
 }
 
 - (void)didReceiveMemoryWarning {

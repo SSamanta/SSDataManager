@@ -14,27 +14,14 @@
 + (void)addEmployeeWithEmpID:(NSString *)empId empName:(NSString *)empName onCompletion:(CompletionHandler)handler {
 	AppDelegate *appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
    	Employee *emp = [NSEntityDescription insertNewObjectForEntityForName:@"Employee" inManagedObjectContext:appDel.managedObjectContext];
-    __block BOOL isDuplicate = NO;
-    [self fetchAllEmployeeOnCompletion:^(NSFetchedResultsController *fetchedObject, NSError *error) {
-         [fetchedObject.fetchedObjects enumerateObjectsUsingBlock:^(Employee *obj, NSUInteger idx, BOOL *stop) {
-             if ([obj.empId isEqualToString:empId]) {
-                 isDuplicate = YES;
-                 *stop = YES;
-             }
-         }];
-    }];
-    if (isDuplicate) {
-        handler(@"Duplicate",nil);
+    emp.empId = empId;
+    emp.empName = empName;
+    NSError *error;
+    [appDel.managedObjectContext save:&error];
+    if (error) {
+        handler (nil,error);
     }else {
-        emp.empId = empId;
-        emp.empName = empName;
-        NSError *error;
-        [appDel.managedObjectContext save:&error];
-        if (error) {
-            handler (nil,error);
-        }else {
-            handler (@"Info Saved" ,nil);
-        }
+        handler (@"Info Saved" ,nil);
     }
 
 }
@@ -53,5 +40,30 @@
     	handler (fetchResultsController,nil);
     }
     
+}
++ (void)deleteDuplicateEmployee {
+    [self fetchAllEmployeeOnCompletion:^(NSFetchedResultsController *fetchResultsController, NSError *error) {
+        if (error) {
+            NSLog(@"%@",error);
+        }else {
+            NSMutableArray *list = [[NSMutableArray alloc] init];
+            AppDelegate *appDel = (AppDelegate *) [[UIApplication sharedApplication]delegate];
+            [fetchResultsController.fetchedObjects enumerateObjectsUsingBlock:^(Employee *empObj, NSUInteger idx, BOOL *stop) {
+                [list addObject:empObj];
+            }];
+            [list enumerateObjectsUsingBlock:^(Employee *empObj, NSUInteger idx, BOOL *stop) {
+                if (idx+1 == list.count) {
+                    *stop = YES;
+                }else {
+                    Employee *nextObj = list [idx +1];
+                    if ([nextObj.empId isEqualToString:empObj.empId] && [nextObj.empName isEqualToString:empObj.empName]) {
+                        [appDel.managedObjectContext deleteObject:empObj];
+                    }
+                }
+            }];
+            NSError *error;
+            [appDel.managedObjectContext save:&error];
+        }
+    }];
 }
 @end
